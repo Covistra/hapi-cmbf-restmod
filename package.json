@@ -1,0 +1,8 @@
+{
+  "name": "cmbf-hapi-restmodel",
+  "version": "0.1.0",
+  "dependencies": {
+    "joi": "^7.0.1",
+    "lodash": "^3.10.1"
+  }
+}
