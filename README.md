@@ -9,7 +9,7 @@ a model definition based on Joi schema.
 
 Install using npm:
 
-```npm install cmbf-restmod --save```
+```npm install cmbf-hapi-restmodel --save```
 
 With the CMBF launcher, you just add a server hook to load additional plugins like this :
 
@@ -56,4 +56,80 @@ The model will create all required routes and mongodb collections for the follow
 - upsert
 - remove
 - list
+
+## Model
+
+Ideally, you define your model using the new ES6 class concept:
+
+```
+var Joi = require('joi');
+
+module.exports = function(server, config, log) {
+    "use strict";
+
+    var BaseModel = server.plugins['cmbf-hapi-restmodel'].BaseModel;
+    var clock = server.plugins['covistra-system'].clock;
+
+    class Document extends BaseModel {
+
+        static get endpoint() {
+            return "documents";
+        }
+
+        static get auth() {
+            return "token";
+        }
+
+        static get name() {
+            return "document";
+        }
+
+        static get collection() {
+            return 'documents';
+        }
+
+        static get Schema() {
+            return Joi.object().keys({
+                key: Joi.string().required(),
+                name: Joi.string().required(),
+                ownerId: Joi.string(),
+                customerId: Joi.string(),
+                type: Joi.string(),
+                tags: Joi.array().items(Joi.string()),
+                content: Joi.any(),
+                created_at: Joi.date().default(clock.nowTs, "Default to current time")
+            });
+        }
+
+    }
+
+    return Document;
+};
+
+```
+
+You then register this model descriptor:
+
+```
+var Document = require('./models/document')(server, config, log);
+modelManager.registerModel('document', Document`);
+```
+
+This model will get automatically exposed when the server stats with all standard routes
+generated for you.
+
+### Overriding ID field
+
+Sometimes you need to override the field through which you model is referenced. By default,
+we use a ```id``` field, but you just have to override the idField property in your
+derived model:
+
+```
+class MyModel extends BaseModel {
+
+    static get idField() {
+        return 'key';
+    }
+}
+```
 
