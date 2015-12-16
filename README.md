@@ -21,7 +21,7 @@ With the CMBF launcher, you just add a server hook to load additional plugins li
     Cmbf.log.debug("Registering specific plugins");
     return defaultImpl().then(function() {
         return P.join(
-            Cmbf.installPlugin(require('cmbf-restmod'))
+            Cmbf.installPlugin(require('cmbf-hapi-restmodel'))
             // Load other plugins...
         );
     });
