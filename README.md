@@ -3,7 +3,7 @@
 This HAPI plugin exposes helpers to easily create RESTful API from
 a model definition based on Joi schema.
 
-*It requires the use of other CMBF plugins*
+*It requires the use of other CMBF plugins. See [CMBF-Core](https://www.npmjs.com/package/cmbf-core) for more details*
 
 ## Install the plugin
 
