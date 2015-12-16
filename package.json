@@ -1,6 +1,6 @@
 {
   "name": "cmbf-hapi-restmodel",
-  "version": "0.4.2-pre",
+  "version": "0.4.2",
   "dependencies": {
     "bluebird": "^3.0.6",
     "boom": "^3.0.0",
