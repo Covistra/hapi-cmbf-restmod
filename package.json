@@ -16,6 +16,17 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "chai": "^3.4.1"
+    "bunyan": "^1.6.0",
+    "bunyan-format": "^0.2.1",
+    "catbox-memory": "^2.0.1",
+    "chai": "^3.4.1",
+    "cmbf-core": "^1.7.8",
+    "covistra-system": "^0.6.6",
+    "gulp": "^3.9.1",
+    "gulp-istanbul": "^0.10.3",
+    "gulp-mocha": "^2.2.0",
+    "hapi": "^13.0.0",
+    "hapi-config": "^0.2.2",
+    "minimist": "^1.2.0"
   }
 }
