@@ -10,7 +10,7 @@ describe('model-manager', function() {
             ctx = result;
 
             // Retrieve any required dependencies for the test
-            modelManager = ctx.server.plugins['covistra-restmodel'].modelManager;
+            modelManager = ctx.server.plugins['cmbf-hapi-restmodel'].modelManager;
 
             done();
         });
