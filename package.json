@@ -1,6 +1,6 @@
 {
   "name": "cmbf-hapi-restmodel",
-  "version": "0.6.1-pre",
+  "version": "0.6.1",
   "author": "Joel Grenon <joelgrenon@covistra.com>",
   "description": "Hapi plugin building a REST Api from Joi schema, backed by covistra-mongo plugin",
   "dependencies": {
